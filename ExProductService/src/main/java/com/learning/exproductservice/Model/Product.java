@@ -2,15 +2,20 @@ package com.learning.exproductservice.Model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Positive;
 
 @Entity
 public class Product {
 
-    @Id
-    @GeneratedValue
+    @Id()
+    @GeneratedValue()
     private int prdid;
+    @NotEmpty(message="Product name is required")
     private String prdname;
+    @Positive(message = "Invalid product price")
     private double prdprice;
     private String prddesc;
 
