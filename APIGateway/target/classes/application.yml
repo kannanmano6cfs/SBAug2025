@@ -1,0 +1,25 @@
+#Properties for API Gwateway Routing
+
+#spring:
+#  cloud:
+#    gateway:
+#      routes:
+#        - id : eurekaclientA
+#          uri: http://localhost:8091
+#          predicates:
+#            - Path=/servicea/**
+#        - id : eurekaclientB
+#          uri: http://localhost:8092
+#          predicates:
+#            - Path=/serviceb/**
+
+#Properties for API Load Balancer
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: serviceA
+          uri: lb://serviceA
+          predicates:
+            - Path=/servicea/**
